@@ -1,21 +1,34 @@
 import pandas as pd
-from pandas._libs.algos import diff_2d
-from pandas.core.interchange.dataframe_protocol import Column
+import re
 
 df = pd.read_csv("titanic.csv")
+df = df[["Name"]]
 
-#How to Sort Data by Multiple Columns
-print(df.sort_values(["Pclass", "Sex"]).head(100))
+#Finding Features within a String
+#How many reverends were there on the Titanic?
+names = df.Name.tolist()
+revs = []
+for name in names:
+  if "Rev." in name:
+    revs.append(name)
+#print(revs)
 
-#How to Drop a Column in Pandas DataFrame
-e = df.drop(columns=["Parch", "Ticket"])
-print(e)
+#To find other data associated with "Rev."
+df1 = df.loc[df["Name"].str.contains("Rev\.")]
+print(df1)
 
-#How to Remove Rows that have NaN in any Column
-df.dropna()
+#Finding Strings that Don’t Contain Feature "Rev.".
+df2 = df.loc[~df["Name"].str.contains("Rev\.")]
+print(df2)
 
-print(df[["Survived", "Name"]])
+#Using RegEx (Regular Expressions) with Pandas.
+#If we were interested in finding any instance of “Rev.” or “Mr.”, we would have to write something like this WITHOUT-RegEx.
+df3 = df.loc[(df["Name"].str.contains("Rev\.")) | (df["Name"].str.contains("Mr\."))]
 
-#How to Convert DataFrame Data Types (from Float to Int)
-df2.Age = df2.Age.astype(int)
-df2
+#WITH - RegEx.
+df4 = df.loc[df["Name"].str.contains("Rev\.|Mr\.", case=False,  regex=True)]
+print(df4)
+
+#To ensure that we grab both upper and lowercase forms of this sequence, let’s ignore the case by using the case keyword and setting it to False.(import re)
+df5 = df.loc[df["Name"].str.contains("Rev.\|Mr\.", case=False, regex=True)]
+print(df5)
