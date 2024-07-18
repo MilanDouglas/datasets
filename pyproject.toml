@@ -9,6 +9,7 @@ packages = [{include = "repl_nix_datasets_1"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pandas = "^2.2.2"
+pd = "^0.0.4"
 
 
 [build-system]

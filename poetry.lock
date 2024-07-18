@@ -128,6 +128,17 @@ test = ["hypothesis (>=6.46.1)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.9.2)"]
 
 [[package]]
+name = "pd"
+version = "0.0.4"
+description = "more detailed python backtraces (similar to backtrace module)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pd-0.0.4-py3-none-any.whl", hash = "sha256:1658b04e2889abf7bb4590f6126ed618bdae474f5f9111872a446dbecd0543ef"},
+    {file = "pd-0.0.4.tar.gz", hash = "sha256:46f21dd5854ee7eb4397daa43191662f787ccf4cfe78e2472564bf9ce7e7614b"},
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
@@ -177,4 +188,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "bd25a6ea5841ab7f6e040986b79a02e95bee0e41ab1fa666cc1297101d554901"
+content-hash = "89f131751f4afced15305a64f0ca609d2038cecebe41cce99429cd443cd5c83b"
