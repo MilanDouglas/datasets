@@ -10,6 +10,7 @@ packages = [{include = "repl_nix_datasets_1"}]
 python = "^3.10"
 pandas = "^2.2.2"
 pd = "^0.0.4"
+matplotlib = "^3.9.1"
 
 
 [build-system]
